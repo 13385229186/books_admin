@@ -1,0 +1,224 @@
+.personalContainer {
+  .userCard {
+    margin-bottom: 16px;
+    
+    .avatarArea {
+      text-align: center;
+      cursor: pointer;
+      
+      .avatarWrapper {
+        position: relative;
+        display: inline-block;
+        width: 120px;
+        height: 120px;
+        
+        .ant-avatar {
+          width: 100%;
+          height: 100%;
+        }
+        
+        .uploadMask {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.5);
+          border-radius: 50%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          opacity: 0;
+          transition: opacity 0.3s;
+          
+          .anticon {
+            color: white;
+            font-size: 24px;
+            margin-bottom: 4px;
+          }
+          
+          .maskText {
+            color: white;
+            font-size: 14px;
+            line-height: 1;
+          }
+        }
+        
+        &:hover .uploadMask {
+          opacity: 1;
+        }
+      }
+      
+      .ant-upload {
+        display: block;
+        width: 100%;
+        cursor: pointer;
+      }
+    }
+    
+    .infoArea {
+      padding: 8px 0;
+      
+      .username {
+        margin-bottom: 8px;
+      }
+      
+      .creditBar {
+        width: 80%;
+        margin: 12px 0;
+      }
+      
+      .metaInfo {
+        display: block;
+        margin: 8px 0;
+      }
+      
+      .actionButtons {
+        margin-top: 16px;
+        
+        a {
+          color: @text-color;
+          &:hover {
+            color: @primary-color;
+          }
+        }
+      }
+    }
+  }
+  
+  .dataPanel {
+    margin-bottom: 16px;
+    
+    .recordCard {
+      height: 100%;
+      
+      .ant-list-item {
+        transition: all 0.3s;
+        &.warning {
+          background-color: #fffbe6;
+        }
+        &.overdue {
+          background-color: #fff1f0;
+        }
+      }
+      
+      .viewAll {
+        margin-top: 16px;
+        text-align: right;
+      }
+      
+      .creditTip {
+        margin-top: 16px;
+        color: @text-color-secondary;
+        font-size: 12px;
+      }
+    }
+  }
+  
+  .functionCard {
+    .functionItem {
+      display: block;
+      text-align: center;
+      padding: 16px 8px;
+      border-radius: 4px;
+      transition: all 0.3s;
+      position: relative;
+      
+      &:hover {
+        background-color: @item-hover-bg;
+      }
+      
+      .functionIcon {
+        font-size: 24px;
+        margin-bottom: 8px;
+        color: @primary-color;
+      }
+      
+      .countTag {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+      }
+    }
+  }
+
+  .overdue {
+    background-color: #fff2f0;
+    border-left: 3px solid #ff4d4f;
+  }
+
+  .expired {
+    background-color: #fff7e6;
+    border-left: 3px solid #faad14;
+  }
+
+  .borrowing {
+    background-color: #f6ffed;
+    border-left: 3px solid #52c41a;
+  }
+
+}
+
+.detailHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  
+  h3 {
+    margin: 0;
+  }
+}
+
+// 借阅记录项样式
+.recordItem {
+  transition: all 0.3s;
+  padding: 12px 16px;
+  border-radius: 4px;
+  padding-left: 16px;
+  &:hover {
+    background-color: #f5f5f5;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    
+    .bookTitle {
+      color: @primary-color;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+// .recordList {
+//   padding-left: 16px;
+// }
+
+// 详情弹窗样式
+.detailContainer {
+  .detailHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  
+  .detailItem {
+    margin-bottom: 12px;
+    
+    .detailLabel {
+      display: inline-block;
+      width: 80px;
+      color: @text-color-secondary;
+    }
+  }
+  
+  .statusInfo {
+    padding: 8px;
+    background-color: @background-color-light;
+    border-radius: 4px;
+  }
+}
+
+// 书名样式
+.bookTitle {
+  font-weight: 500;
+  transition: all 0.3s;
+}

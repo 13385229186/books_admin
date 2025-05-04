@@ -1,0 +1,45 @@
+.recordTable {
+  margin-top: 16px;
+  
+  .bookTitle {
+    color: #1890ff;
+  }
+
+  .ant-tag {
+    margin-right: 0;
+  }
+
+  .ant-picker {
+    width: 100%;
+  }
+}
+
+.searchForm {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 0; // 行间距16px，列间距0
+  
+  .ant-form-item {
+    margin-bottom: 0;
+    margin-right: 16px;
+    
+    // 标签样式
+    .ant-form-item-label {
+      padding-right: 8px;
+      label {
+        color: rgba(0, 0, 0, 0.65);
+      }
+    }
+    
+    // 输入框样式
+    .ant-input, .ant-picker, .ant-select-selector {
+      border-radius: 4px;
+    }
+  }
+  
+  // 按钮组样式
+  .ant-space {
+    display: flex;
+    justify-content: flex-end;
+  }
+}

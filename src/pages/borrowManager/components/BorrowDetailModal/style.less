@@ -1,0 +1,104 @@
+.detailContainer {
+  .sectionContainer {
+    margin-bottom: 24px;
+    background: #fff;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+    
+    .sectionHeader {
+      display: flex;
+      align-items: center;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #f0f0f0;
+      
+      .sectionIcon {
+        margin-right: 8px;
+        color: @primary-color;
+        font-size: 18px;
+      }
+      
+      .sectionTitle {
+        font-size: 16px;
+        font-weight: 500;
+        color: @heading-color;
+      }
+    }
+    
+    .sectionContent {
+      padding: 0 8px;
+    }
+  }
+  
+  .avatarCol {
+    display: flex;
+    justify-content: center;
+    
+    .userAvatar {
+      background-color: @primary-1;
+    }
+  }
+  
+  .detailDescriptions {
+    .ant-descriptions-item-label {
+      color: @text-color-secondary;
+      width: 80px;
+    }
+    
+    .ant-descriptions-item-content {
+      color: @text-color;
+    }
+  }
+  
+  .borrowDescriptions {
+    .ant-descriptions-item-label {
+      font-weight: 500;
+    }
+  }
+  
+  .bookTitle {
+    font-weight: 500;
+    color: @heading-color;
+  }
+  
+  .lowCredit {
+    color: @error-color;
+    font-weight: 500;
+  }
+  
+  .lowStock {
+    color: @error-color;
+    font-weight: 500;
+  }
+  
+  .statusContainer {
+    margin: 24px 0;
+    
+    .statusAlert {
+      border-radius: 8px;
+    }
+  }
+  
+  .actionContainer {
+    margin-top: 32px;
+    
+    .actionDivider {
+      color: @text-color-secondary;
+      
+      .anticon {
+        margin-right: 8px;
+      }
+    }
+    
+    .actionButtons {
+      display: flex;
+      justify-content: center;
+      margin-top: 16px;
+      
+      .actionButton {
+        min-width: 120px;
+      }
+    }
+  }
+}

@@ -1,0 +1,156 @@
+// @import '~antd/es/style/themes/default.less';
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+// 问候区卡片样式
+.welcomeCard {
+  margin-bottom: 24px;
+  background: linear-gradient(135deg, @primary-1, @geekblue-1);
+  border-radius: 8px;
+  overflow: hidden;
+  
+  .ant-card-body {
+    padding: 24px 32px;
+  }
+
+  // 标题样式
+  .ant-typography {
+    color: @white;
+    
+    &.ant-typography-secondary {
+      color: fade(@white, 85%);
+      font-size: 14px;
+    }
+  }
+
+  // 按钮样式
+  .ant-btn {
+    box-shadow: 0 2px 8px fade(@black, 12%);
+    transition: all 0.3s @ease-in-out;
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px fade(@black, 16%);
+    }
+  }
+}
+
+// 内容区布局
+.contentRow {
+  margin-bottom: 24px;
+  
+  .ant-col {
+    margin-bottom: 24px;
+  }
+}
+
+// 推荐书籍卡片
+.recommendCard {
+  height: 100%;
+  border-radius: 8px;
+  
+  .ant-card-head {
+    border-bottom: none;
+    padding: 0 16px;
+    
+    .ant-card-head-title {
+      padding: 16px 0;
+      font-weight: 500;
+    }
+    
+    .ant-card-extra {
+      padding: 16px 0;
+    }
+  }
+  
+  .ant-card-body {
+    padding: 0 8px 16px;
+  }
+  
+  // 换一批按钮
+  .ant-btn {
+    border: none;
+    color: @primary-color;
+    background: fade(@primary-1, 30%);
+    
+    &:hover {
+      background: fade(@primary-2, 40%);
+    }
+  }
+}
+
+// 热门书籍卡片容器
+.hotCard {
+  .ant-card-body {
+    padding: 0;
+  }
+}
+
+// 列表项样式
+.hotListItem {
+  padding: 12px 16px;
+  transition: all 0.1s @ease-in-out;
+  border-bottom: 1px solid @border-color-split;
+  cursor: pointer;
+  
+  &:hover {
+    background: @item-hover-bg;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+    z-index: 1;
+
+    .bookLink {
+      color: @primary-color !important;
+    }
+  }
+  
+  &:active {
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.08);
+  }
+  
+  .ant-list-item-meta {
+    align-items: center;
+    
+    &-title {
+      margin-bottom: 0;
+      display: flex;
+      align-items: center;
+    }
+    
+    &-description {
+      margin-top: 4px;
+    }
+  }
+}
+
+// 响应式调整
+@media (max-width: @screen-md) {
+  .container {
+    padding: 16px;
+  }
+  
+  .welcomeCard {
+    .ant-card-body {
+      padding: 16px;
+    }
+    
+    .ant-btn {
+      padding: 0 12px;
+    }
+  }
+}
+
+@media (max-width: @screen-sm) {
+  .welcomeCard {
+    text-align: center;
+    
+    .ant-row {
+      flex-direction: column;
+      gap: 12px;
+    }
+  }
+}
