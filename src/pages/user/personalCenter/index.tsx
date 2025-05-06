@@ -159,7 +159,7 @@ const PersonalCenter: React.FC = () => {
         return {
           message: `状态: 借阅中 | 应还日期: ${dueTime ? formatDateTime(dueTime) : '未设置'}`,
           additionalInfo: remainingDays !== null 
-            ? (remainingDays > 0 ? `剩余${remainingDays}天` : '已超过还书期限') 
+            ? (remainingDays > -1 ? `剩余${remainingDays}天` : '已超过还书期限') 
             : ''
         };
       }
@@ -243,6 +243,7 @@ const PersonalCenter: React.FC = () => {
     id: currentUser.id,
     avatar: currentUser.avatar || null,
     username: currentUser.username,
+    status: currentUser.status,
     creditScore: currentUser.creditScore,
     createdAt: currentUser.createdAt,
     favoritesCount: currentUser.favoritesCount || 0,
@@ -309,7 +310,7 @@ const PersonalCenter: React.FC = () => {
                     <div className={styles.avatarWrapper}>
                       <Avatar
                         size={120}
-                        src={avatarLoading ? undefined : toCosUrl(safeUser.avatar)}
+                        src={avatarLoading ? undefined : safeUser.avatar}
                         icon={avatarLoading ? <LoadingOutlined /> : <UserOutlined />}
                       />
                       <div className={styles.uploadMask}>

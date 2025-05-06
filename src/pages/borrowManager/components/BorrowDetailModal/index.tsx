@@ -154,7 +154,7 @@ const BorrowDetailModal: React.FC<BorrowDetailModalProps> = ({
         return {
           message: `状态: 借阅中 | 应还日期: ${dueTime ? formatDateTime(dueTime) : '未设置'}`,
           additionalInfo: remainingDays !== null 
-            ? (remainingDays > 0 ? `剩余${remainingDays}天` : '已超过还书期限') 
+            ? (remainingDays > -1 ? `剩余${remainingDays}天` : '已超过还书期限') 
             : ''
         };
       }
