@@ -66,7 +66,6 @@ const ActivityMemberManager: React.FC = () => {
               record.bookNumber = res.data
               setCurrentRow(record);
             })
-
           }}
         >
           {record.title}
@@ -124,10 +123,13 @@ const ActivityMemberManager: React.FC = () => {
         <a
           key={`edit-${record.id}`}
           onClick={() => {
-            setCurrentRow(record); // 设置当前行数据
-            setCreateModalOpen(true); // 打开添加/修改表单
-            setOperate('编辑');
-            fillFormWithData(record);
+            getBookNumberById({bookId: record.id}).then((res)=>{
+              record.bookNumber = res.data
+              setCurrentRow(record); // 设置当前行数据
+              setCreateModalOpen(true); // 打开添加/修改表单
+              setOperate('编辑');
+              fillFormWithData(record);
+            })
           }}
         >
           编辑
@@ -217,7 +219,7 @@ const ActivityMemberManager: React.FC = () => {
    * 打卡编辑表单前，根据currentRow填充表单
    */
   const fillFormWithData = (record: BookDataConfig) => {
-    // //console.log(record)
+    console.log(record)
     if (!record) return; // 安全校验
 
     // 填充基础表单字段
@@ -228,7 +230,8 @@ const ActivityMemberManager: React.FC = () => {
       press: record.press,
       categoryId: record.categoryId,
       status: record.status,
-      intro: record.intro
+      intro: record.intro,
+      bookNumber: record.bookNumber
     });
 
     // 封面文件
@@ -508,6 +511,16 @@ const ActivityMemberManager: React.FC = () => {
                 initialValue="MAINTENANCE"
                 options={bookStatus}
                 placeholder="请选择状态"
+                fieldProps={{
+                  onChange: (value) => {
+                    // 当状态BORROWED时自动设置状态为库存为0
+                    if (value === 'BORROWED') {
+                      form.setFieldsValue({
+                        bookNumber: 0
+                      });
+                    }
+                  }
+                }}
               />
             </Col>
             <Col span={8}>
