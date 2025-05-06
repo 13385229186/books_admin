@@ -1,4 +1,4 @@
-import { Card, Typography, Tooltip, Tag } from 'antd';
+import { Card, Typography, Tooltip, Tag, Image } from 'antd';
 import { history } from 'umi';
 import type { ListItemDataType } from '@/pages/book/list/data.d';
 import useStyles from './style.style';
@@ -66,7 +66,7 @@ const BookCard: React.FC<BookCardProps> = ({
         cover={
           data.cover ? (
             <div style={{ position: 'relative' }}>
-              <img 
+              {/* <img 
                 style={{
                   width: '100%',
                   height: '200px',
@@ -78,6 +78,20 @@ const BookCard: React.FC<BookCardProps> = ({
                 }} 
                 alt={data.title} 
                 src={toCosUrl(data.cover)} 
+              /> */}
+              <Image
+                style={{
+                  width: '100%',
+                  height: '200px',
+                  objectFit: 'cover',
+                  objectPosition: 'center',
+                  display: 'block',
+                  borderTopLeftRadius: '10px',
+                  borderTopRightRadius: '10px',
+                }} 
+                preview={false}
+                src={toCosUrl(data.cover)}
+                alt={data.title}
               />
             </div>
           ) : (
