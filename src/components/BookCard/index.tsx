@@ -1,5 +1,4 @@
-import { Card, Typography, Tooltip, Tag, Skeleton  } from 'antd';
-import React, { useState } from 'react';
+import { Card, Typography, Tooltip, Tag, Image } from 'antd';
 import { history } from 'umi';
 import type { ListItemDataType } from '@/pages/book/list/data.d';
 import useStyles from './style.style';
@@ -20,8 +19,7 @@ const BookCard: React.FC<BookCardProps> = ({
   rank 
 }) => {
   const { styles } = useStyles();
-  const [imgLoaded, setImgLoaded] = useState(false);
-  
+
   // 推荐标识渲染
   const renderRecommendBadge = () => {
     if (!showRecommendBadge || !rank || rank > 3) return null;
@@ -68,16 +66,6 @@ const BookCard: React.FC<BookCardProps> = ({
         cover={
           data.cover ? (
             <div style={{ position: 'relative' }}>
-              {!imgLoaded && (
-                <Skeleton.Avatar 
-                  active 
-                  style={{ 
-                    width: '100%', 
-                    height: '200px', 
-                    borderRadius: 0 
-                  }} 
-                />
-              )}
               <img 
                 style={{
                   width: '100%',
@@ -88,10 +76,10 @@ const BookCard: React.FC<BookCardProps> = ({
                   borderTopLeftRadius: '10px',
                   borderTopRightRadius: '10px',
                 }} 
-                alt={data.title} 
+                alt={data.title + '封面加载中...'} 
                 src={toCosUrl(data.cover)} 
-                onLoad={() => setImgLoaded(true)}
               />
+
             </div>
           ) : (
             <div style={{
