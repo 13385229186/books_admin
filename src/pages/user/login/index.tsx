@@ -367,6 +367,7 @@ const Login: React.FC = () => {
                       />
                     ),
                   },
+                  { min: 6, max: 20, message: '密码长度为6-20个字符' },
                 ]}
               />
               <ProFormText.Password
