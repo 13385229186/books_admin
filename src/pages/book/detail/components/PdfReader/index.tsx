@@ -8,9 +8,6 @@ import { LoadingOutlined } from '@ant-design/icons';
 // 配置PDF.js worker
 pdfjs.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.worker.min.js';
 
-// 本地存储键名
-const STORAGE_KEY = 'last-read-page';
-
 interface PdfReaderProps {
   pdfUrl: string;
   bookId: string;
@@ -24,10 +21,14 @@ const PdfReader: React.FC<PdfReaderProps> = ({ pdfUrl, bookId }) => {
   const [containerWidth, setContainerWidth] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
 
+  // 本地存储键名
+  const STORAGE_KEY = 'last-read-page' + bookId;
+  console.log(STORAGE_KEY)
+
   // 从本地存储获取上次阅读页数
   const getLastReadPage = () => {
     try {
-      const lastPage = localStorage.getItem(STORAGE_KEY + bookId);
+      const lastPage = localStorage.getItem(STORAGE_KEY);
       return lastPage ? parseInt(lastPage) : 1;
     } catch {
       return 1;
@@ -37,7 +38,7 @@ const PdfReader: React.FC<PdfReaderProps> = ({ pdfUrl, bookId }) => {
   // 保存当前阅读页数
   const saveCurrentPage = useCallback((page: number) => {
     try {
-      localStorage.setItem(STORAGE_KEY + bookId, page.toString());
+      localStorage.setItem(STORAGE_KEY, page.toString());
     } catch (e) {
       console.error('本地存储失败:', e);
     }
