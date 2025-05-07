@@ -13,9 +13,10 @@ const STORAGE_KEY = 'last-read-page';
 
 interface PdfReaderProps {
   pdfUrl: string;
+  bookId: string;
 }
 
-const PdfReader: React.FC<PdfReaderProps> = ({ pdfUrl }) => {
+const PdfReader: React.FC<PdfReaderProps> = ({ pdfUrl, bookId }) => {
   const [numPages, setNumPages] = useState<number | null>(null);
   const [pageRange, setPageRange] = useState<{start: number; end: number}>({start: 1, end: 10});
   const [currentPage, setCurrentPage] = useState(1);
@@ -26,7 +27,7 @@ const PdfReader: React.FC<PdfReaderProps> = ({ pdfUrl }) => {
   // 从本地存储获取上次阅读页数
   const getLastReadPage = () => {
     try {
-      const lastPage = localStorage.getItem(STORAGE_KEY);
+      const lastPage = localStorage.getItem(STORAGE_KEY + bookId);
       return lastPage ? parseInt(lastPage) : 1;
     } catch {
       return 1;
@@ -36,7 +37,7 @@ const PdfReader: React.FC<PdfReaderProps> = ({ pdfUrl }) => {
   // 保存当前阅读页数
   const saveCurrentPage = useCallback((page: number) => {
     try {
-      localStorage.setItem(STORAGE_KEY, page.toString());
+      localStorage.setItem(STORAGE_KEY + bookId, page.toString());
     } catch (e) {
       console.error('本地存储失败:', e);
     }

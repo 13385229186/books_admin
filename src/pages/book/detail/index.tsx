@@ -219,6 +219,7 @@ const BookDetail: React.FC = () => {
         {isReading && book?.ebook && (
           <PdfReader 
             pdfUrl={toCosUrl(book.ebook)} 
+            bookId={book.id}
           />
         )}
       </Modal>
