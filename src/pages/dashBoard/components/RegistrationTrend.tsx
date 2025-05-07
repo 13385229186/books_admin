@@ -37,7 +37,7 @@ const RegistrationTrend: React.FC = () => {
     // 生成最近7天日期
     const dateRange = Array.from({ length: 7 }, (_, i) => {
       const date = new Date();
-      date.setDate(date.getDate() - (5 - i));
+      date.setDate(date.getDate() - (6 - i));
       return date.toISOString().split('T')[0];
     });
     
