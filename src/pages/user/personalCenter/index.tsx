@@ -125,9 +125,13 @@ const PersonalCenter: React.FC = () => {
   // 状态样式类名
   const getStatusClassName = (status: keyof typeof BorrowStatusText): string => {
     const classMap: Partial<Record<keyof typeof BorrowStatusText, string>> = {
-      OVERDUE: styles.overdue,
+      APPLIED: styles.applied,
+      // CANCELLED: styles.cancelled,
       EXPIRED: styles.expired,
-      BORROWED: styles.borrowing
+      BORROWED: styles.borrowing,
+      OVERDUE: styles.overdue,
+      // RETURNED: styles.returned,
+      LOST: styles.lost
     };
     return classMap[status] || '';
   };
