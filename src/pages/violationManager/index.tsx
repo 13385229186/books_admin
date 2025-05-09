@@ -155,7 +155,7 @@ const ViolationManagement: React.FC = () => {
           defaultCollapsed: false,
         }}
         pagination={{
-          pageSize: 10,
+          pageSize:5,
           // showSizeChanger: true,
         }}
         toolBarRender={() => [
