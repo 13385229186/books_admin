@@ -226,6 +226,17 @@ const Login: React.FC = () => {
           initialValues={{
             autoLogin: true,
           }}
+          submitter={{
+            searchConfig: {
+              submitText: type === 'login' ? '登录' : '注册',
+            },
+            submitButtonProps: {
+              size: 'large',
+              style: {
+                width: '100%',
+              },
+            },
+          }}
           // actions={[
           //   <FormattedMessage
           //     key="loginWith"
